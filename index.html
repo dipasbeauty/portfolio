@@ -1,0 +1,1196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Dipas Holistic Studio | Beauty, Tarot, Crystals & Numerology</title>
+    <meta name="description"
+        content="Transform your life with Dipas Holistic Studio. Premium Beauty Services, Accurate Tarot Readings, Healing Crystals, and Numerology Consultation.">
+    <meta name="theme-color" content="#1a1a1a">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --font-heading: 'Cormorant Garamond', serif;
+            --font-body: 'Montserrat', sans-serif;
+            --color-gold: #D4AF37;
+            --color-gold-light: #F4E4BC;
+            --color-dark: #121212;
+            --color-dark-surface: #1E1E1E;
+            --color-text: #E0E0E0;
+            --color-text-muted: #A0A0A0;
+            --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.2);
+            --shadow-glow: 0 0 20px rgba(212, 175, 55, 0.3);
+            --radius-lg: 24px;
+            --radius-md: 16px;
+            --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--color-dark);
+            color: var(--color-text);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            width: 100%;
+            display: block;
+            object-fit: cover;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .text-gold {
+            color: var(--color-gold);
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+            gap: 0.8rem;
+            position: relative;
+            overflow: hidden;
+            font-size: 0.9rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--color-gold), #B8860B);
+            color: #000;
+            box-shadow: var(--shadow-glow);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.6);
+        }
+
+        .btn-whatsapp {
+            background: #25D366;
+            color: white;
+        }
+
+        .btn-whatsapp:hover {
+            background: #128C7E;
+            transform: scale(1.05);
+        }
+
+        .wa-icon {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+        }
+
+        /* NAVBAR */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: var(--transition);
+        }
+
+        .navbar.scrolled {
+            background: rgba(18, 18, 18, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 2px solid var(--color-gold);
+        }
+
+        .brand-name {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            color: var(--color-gold);
+            letter-spacing: 1px;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+
+        .hero-bg-grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            z-index: 0;
+            opacity: 0.4;
+        }
+
+        .hero-bg-item {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(30%) brightness(0.7);
+            transition: var(--transition);
+        }
+
+        .hero-bg-item:hover {
+            filter: grayscale(0%) brightness(1);
+            transform: scale(1.05);
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(18, 18, 18, 0.7) 0%, rgba(18, 18, 18, 1) 100%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 800px;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, #fff, var(--color-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--color-text-muted);
+            margin-bottom: 3rem;
+        }
+
+        .hero-cards {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .hero-card {
+            background: rgba(30, 30, 30, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-md);
+            padding: 1.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--color-gold);
+        }
+
+        .hero-card img {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1rem;
+            border-radius: 50%;
+            border: 2px solid var(--color-gold);
+            object-fit: cover;
+        }
+
+        /* SECTIONS */
+        .section {
+            padding: 6rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-parlour {
+            background: linear-gradient(to bottom, #1a1a1a, #2d1b21);
+        }
+
+        .section-tarot {
+            background: linear-gradient(to bottom, #1a1a1a, #1a102e);
+        }
+
+        .section-crystals {
+            background: linear-gradient(to bottom, #1a1a1a, #0f261f);
+        }
+
+        .section-numerology {
+            background: linear-gradient(to bottom, #1a1a1a, #0d1b2a);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 3rem;
+            color: var(--color-gold);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            color: var(--color-text-muted);
+        }
+
+        .split-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .section-img-box {
+            position: relative;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .section-img-box img {
+            transition: transform 1s ease;
+        }
+
+        .section-img-box:hover img {
+            transform: scale(1.1);
+        }
+
+        .offer-list {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .offer-list li {
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+            position: relative;
+            font-size: 1.1rem;
+        }
+
+        .offer-list li::before {
+            content: '✦';
+            position: absolute;
+            left: 0;
+            color: var(--color-gold);
+        }
+
+        /* MODERN GALLERY SCROLL */
+        .gallery-wrapper {
+            margin-top: 3rem;
+            position: relative;
+        }
+
+        .gallery-wrapper h3 {
+            margin-bottom: 1.5rem;
+        }
+
+        .gallery-scroll {
+            display: flex;
+            gap: 1.2rem;
+            overflow-x: auto;
+            padding: 1rem 0.5rem 2rem;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none;
+            scroll-behavior: smooth;
+        }
+
+        .gallery-scroll::-webkit-scrollbar {
+            display: none;
+        }
+
+        .gallery-item {
+            flex: 0 0 280px;
+            scroll-snap-align: center;
+            background: var(--color-dark-surface);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            transition: var(--transition);
+            cursor: pointer;
+            position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.2);
+            border-color: var(--color-gold);
+        }
+
+        .gallery-item .media-container {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .gallery-item img,
+        .gallery-item video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img,
+        .gallery-item:hover video {
+            transform: scale(1.1);
+        }
+
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 1;
+            transition: var(--transition);
+        }
+
+        .play-btn {
+            width: 60px;
+            height: 60px;
+            background: rgba(212, 175, 55, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            transition: var(--transition);
+        }
+
+        .play-btn::after {
+            content: '';
+            border-left: 18px solid #000;
+            border-top: 11px solid transparent;
+            border-bottom: 11px solid transparent;
+            margin-left: 4px;
+        }
+
+        .gallery-item:hover .play-btn {
+            transform: scale(1.1);
+            background: var(--color-gold);
+        }
+
+        .gallery-info {
+            padding: 1rem;
+            position: relative;
+        }
+
+        .gallery-info h4 {
+            color: var(--color-gold-light);
+            font-size: 1rem;
+            margin-bottom: 0.3rem;
+            font-family: var(--font-heading);
+        }
+
+        .gallery-info p {
+            font-size: 0.85rem;
+            color: #888;
+            line-height: 1.4;
+        }
+
+        /* CRYSTAL INFO CARDS */
+        .crystal-info-section {
+            margin-top: 3rem;
+        }
+
+        .crystal-info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .crystal-info-card {
+            background: linear-gradient(145deg, rgba(30, 30, 30, 0.8), rgba(15, 38, 31, 0.6));
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: var(--radius-md);
+            padding: 1.5rem;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .crystal-info-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--color-gold), transparent);
+        }
+
+        .crystal-info-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--color-gold);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.15);
+        }
+
+        .crystal-info-card h4 {
+            color: var(--color-gold);
+            margin-bottom: 0.8rem;
+            font-size: 1.3rem;
+        }
+
+        .crystal-info-card .short-desc {
+            color: var(--color-text);
+            font-size: 0.95rem;
+        }
+
+        .crystal-info-card .detailed-desc {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease, opacity 0.3s ease;
+            opacity: 0;
+            margin-top: 0;
+            color: #aaa;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .crystal-info-card:hover .detailed-desc {
+            max-height: 200px;
+            opacity: 1;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* LIGHTBOX */
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 10000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .lightbox.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90%;
+            position: relative;
+            animation: zoomIn 0.3s ease;
+        }
+
+        @keyframes zoomIn {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .lightbox-content img,
+        .lightbox-content video {
+            max-width: 100%;
+            max-height: 85vh;
+            border-radius: var(--radius-md);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: #fff;
+            font-size: 2rem;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .lightbox-close:hover {
+            background: var(--color-gold);
+            color: #000;
+        }
+
+        .lightbox-info {
+            text-align: center;
+            margin-top: 1rem;
+            color: #fff;
+        }
+
+        .lightbox-info h4 {
+            color: var(--color-gold);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* REVIEWS */
+        .reviews-section {
+            margin-top: 3rem;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: var(--radius-lg);
+        }
+
+        .reviews-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            color: var(--color-gold);
+        }
+
+        .reviews-scroll {
+            display: flex;
+            gap: 1.5rem;
+            overflow-x: auto;
+            padding-bottom: 1rem;
+            scrollbar-width: none;
+        }
+
+        .reviews-scroll::-webkit-scrollbar {
+            display: none;
+        }
+
+        .review-card {
+            flex: 0 0 300px;
+            background: var(--color-dark);
+            padding: 1.5rem;
+            border-radius: var(--radius-md);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .stars {
+            color: var(--color-gold);
+            margin-bottom: 0.5rem;
+        }
+
+        .review-text {
+            font-style: italic;
+            font-size: 0.95rem;
+            color: #ccc;
+            margin-bottom: 1rem;
+        }
+
+        .review-author {
+            font-weight: 600;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .verified-badge {
+            font-size: 0.8rem;
+            color: #25D366;
+            background: rgba(37, 211, 102, 0.1);
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        /* Scroll arrows */
+        .scroll-arrows {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .scroll-arrow {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            color: var(--color-gold);
+            font-size: 1.2rem;
+        }
+
+        .scroll-arrow:hover {
+            background: var(--color-gold);
+            color: #000;
+        }
+
+        /* MOBILE */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-cards {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .split-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-bg-grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: repeat(4, 1fr);
+            }
+
+            .gallery-item {
+                flex: 0 0 240px;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .mobile-sticky-cta {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                background: rgba(18, 18, 18, 0.95);
+                backdrop-filter: blur(10px);
+                padding: 1rem;
+                display: flex;
+                justify-content: space-around;
+                z-index: 9999;
+                border-top: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .mobile-hide {
+                display: none;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .mobile-only {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-content">
+            <div class="logo-container">
+                <img src="images/assets/logo.png" alt="Dipas Holistic Studio Logo" class="logo-img">
+                <span class="brand-name">Dipas Studio</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <header class="hero">
+        <div class="hero-bg-grid">
+            <img src="images/assets/beauty-hero.png" class="hero-bg-item" alt="Beauty">
+            <img src="images/assets/tarot-hero.png" class="hero-bg-item" alt="Tarot">
+            <img src="images/assets/crystals-hero.png" class="hero-bg-item" alt="Crystals">
+            <img src="images/assets/numerology-hero.png" class="hero-bg-item" alt="Numerology">
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="container hero-content reveal active">
+            <h1 class="hero-title">Discover Your True Potential</h1>
+            <p class="hero-subtitle">Beauty, Clarity, Healing & Destiny. All in one place.</p>
+            <div class="hero-cards">
+                <div class="hero-card glass" onclick="scrollToSection('parlour')">
+                    <img src="images/assets/beauty-hero.png" alt="Beauty">
+                    <h3>Beauty</h3>
+                </div>
+                <div class="hero-card glass" onclick="scrollToSection('tarot')">
+                    <img src="images/assets/tarot-hero.png" alt="Tarot">
+                    <h3>Tarot</h3>
+                </div>
+                <div class="hero-card glass" onclick="scrollToSection('crystals')">
+                    <img src="images/assets/crystals-hero.png" alt="Crystals">
+                    <h3>Crystals</h3>
+                </div>
+                <div class="hero-card glass" onclick="scrollToSection('numerology')">
+                    <img src="images/assets/numerology-hero.png" alt="Numerology">
+                    <h3>Reiki</h3>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- BEAUTY PARLOUR -->
+        <section id="parlour" class="section section-parlour">
+            <div class="container">
+                <div class="section-header reveal">
+                    <h2>Luxury Beauty Parlour</h2>
+                    <p>Radiance that turns heads. Treatments that touch the soul.</p>
+                </div>
+                <div class="split-layout">
+                    <div class="section-img-box reveal"><img src="images/assets/beauty-hero.png"
+                            alt="Luxury Beauty Parlour"></div>
+                    <div class="reveal">
+                        <h3 class="text-gold">Why Choose Us?</h3>
+                        <p style="margin-bottom: 1rem;">We don't just do makeup; we craft confidence. Using only
+                            premium, skin-safe international brands.</p>
+                        <ul class="offer-list">
+                            <li><strong>Hydra Facial:</strong> Deep hydration for instant glow.</li>
+                            <li><strong>Bridal Packages:</strong> Complete pre-bridal & bridal care.</li>
+                            <li><strong>Advanced Hair Spa:</strong> Restore your hair's natural shine.</li>
+                            <li><strong>3D HD Makeup:</strong> Flawless finish for your special day.</li>
+                        </ul>
+                        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                            <a href="tel:+919876543210" class="btn btn-primary">📞 Call Now</a>
+                            <a href="#" onclick="openWhatsApp('parlour')" class="btn btn-whatsapp"><svg class="wa-icon"
+                                    viewBox="0 0 24 24">
+                                    <path
+                                        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.008-.57-.008-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+                                </svg>Book Appointment</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-wrapper reveal">
+                    <h3 class="text-center text-gold">Our Work</h3>
+                    <div id="parlour-gallery" class="gallery-scroll"></div>
+                    <div class="scroll-arrows"><span class="scroll-arrow"
+                            onclick="scrollGallery('parlour-gallery', -300)">←</span><span class="scroll-arrow"
+                            onclick="scrollGallery('parlour-gallery', 300)">→</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAROT -->
+        <section id="tarot" class="section section-tarot">
+            <div class="container">
+                <div class="section-header reveal">
+                    <h2>Mystic Tarot Reading</h2>
+                    <p>The cards don't predict the future; they create it.</p>
+                </div>
+                <div class="split-layout">
+                    <div class="reveal">
+                        <h3 class="text-gold">Find Clarity in Chaos</h3>
+                        <p style="margin-bottom: 1rem;">Stuck in a dilemma? Our readings provide deep psychological and
+                            spiritual insights.</p>
+                        <ul class="offer-list">
+                            <li><strong>Love & Relationships:</strong> Will they come back? Is he the one?</li>
+                            <li><strong>Career Guidance:</strong> Job switch or business? Find out.</li>
+                            <li><strong>Yearly Forecast:</strong> Prepare for what's coming in 2025.</li>
+                        </ul>
+                        <a href="#" onclick="openWhatsApp('tarot')" class="btn btn-whatsapp"><svg class="wa-icon"
+                                viewBox="0 0 24 24">
+                                <path
+                                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.008-.57-.008-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+                            </svg>Reveal My Destiny</a>
+                    </div>
+                    <div class="section-img-box reveal"><img src="images/assets/tarot-hero.png" alt="Tarot Reading">
+                    </div>
+                </div>
+                <div class="gallery-wrapper reveal">
+                    <h3 class="text-center text-gold">Tarot Sessions</h3>
+                    <div id="tarot-gallery" class="gallery-scroll"></div>
+                    <div class="scroll-arrows"><span class="scroll-arrow"
+                            onclick="scrollGallery('tarot-gallery', -300)">←</span><span class="scroll-arrow"
+                            onclick="scrollGallery('tarot-gallery', 300)">→</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CRYSTALS -->
+        <section id="crystals" class="section section-crystals">
+            <div class="container">
+                <div class="section-header reveal">
+                    <h2>Healing Crystals</h2>
+                    <p>Earth's energy, refined for your soul.</p>
+                </div>
+                <div class="split-layout">
+                    <div class="section-img-box reveal"><img src="images/assets/crystals-hero.png"
+                            alt="Healing Crystals"></div>
+                    <div class="reveal">
+                        <h3 class="text-gold">Energize Your Life</h3>
+                        <p style="margin-bottom: 1rem;">Crystals are nature's batteries. We help you choose the one that
+                            vibrates with your aura.</p>
+                        <ul class="offer-list">
+                            <li><strong>Rose Quartz:</strong> Attract love and heal relationships.</li>
+                            <li><strong>Amethyst:</strong> For peace, sleep, and intuition.</li>
+                            <li><strong>Citrine:</strong> The merchant's stone for wealth.</li>
+                            <li><strong>Black Tourmaline:</strong> Protection from negativity.</li>
+                        </ul>
+                        <a href="#" onclick="openWhatsApp('crystals')" class="btn btn-whatsapp"><svg class="wa-icon"
+                                viewBox="0 0 24 24">
+                                <path
+                                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.008-.57-.008-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+                            </svg>Get Crystal Guidance</a>
+                    </div>
+                </div>
+
+                <!-- Crystal Info Cards -->
+                <div class="crystal-info-section reveal">
+                    <h3 class="text-center text-gold">Crystal Guide</h3>
+                    <div class="crystal-info-grid" id="crystal-info-grid"></div>
+                </div>
+
+                <div class="gallery-wrapper reveal">
+                    <h3 class="text-center text-gold">Our Collection</h3>
+                    <div id="crystals-gallery" class="gallery-scroll"></div>
+                    <div class="scroll-arrows"><span class="scroll-arrow"
+                            onclick="scrollGallery('crystals-gallery', -300)">←</span><span class="scroll-arrow"
+                            onclick="scrollGallery('crystals-gallery', 300)">→</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- REIKI/NUMEROLOGY -->
+        <section id="numerology" class="section section-numerology">
+            <div class="container">
+                <div class="section-header reveal">
+                    <h2>Reiki & Energy Healing</h2>
+                    <p>Channel universal energy to heal mind, body & spirit.</p>
+                </div>
+                <div class="split-layout">
+                    <div class="reveal">
+                        <h3 class="text-gold">Balance Your Chakras</h3>
+                        <p style="margin-bottom: 1rem;">Reiki is a powerful healing technique that channels life force
+                            energy to promote wellness and spiritual growth.</p>
+                        <ul class="offer-list">
+                            <li><strong>Chakra Healing:</strong> Align your 7 energy centers.</li>
+                            <li><strong>Distance Reiki:</strong> Healing from anywhere in the world.</li>
+                            <li><strong>Money Reiki:</strong> Remove blocks to abundance.</li>
+                            <li><strong>Karmic Healing:</strong> Release past life patterns.</li>
+                        </ul>
+                        <a href="#" onclick="openWhatsApp('numerology')" class="btn btn-whatsapp"><svg class="wa-icon"
+                                viewBox="0 0 24 24">
+                                <path
+                                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.008-.57-.008-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+                            </svg>Book Reiki Session</a>
+                    </div>
+                    <div class="section-img-box reveal"><img src="images/assets/numerology-hero.png" alt="Reiki"></div>
+                </div>
+                <div class="gallery-wrapper reveal">
+                    <h3 class="text-center text-gold">Healing Journey</h3>
+                    <div id="reiki-gallery" class="gallery-scroll"></div>
+                    <div class="scroll-arrows"><span class="scroll-arrow"
+                            onclick="scrollGallery('reiki-gallery', -300)">←</span><span class="scroll-arrow"
+                            onclick="scrollGallery('reiki-gallery', 300)">→</span></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer style="background: #000; padding: 4rem 0; text-align: center; color: #666;">
+        <div class="container">
+            <img src="images/assets/logo.png" alt="Logo"
+                style="width: 60px; margin: 0 auto 1rem; opacity: 0.8; border-radius: 50%;">
+            <h3 style="color: #fff; margin-bottom: 1rem;">Dipas Holistic Studio</h3>
+            <p>Your Shop Name, Street, Area, City, State, Pincode</p>
+            <p style="margin: 1rem 0;"><a href="tel:+919876543210" style="color: var(--color-gold);">+91 86692 14433</a>
+            </p>
+            <div style="margin-top: 2rem; opacity: 0.5; font-size: 0.8rem;">© 2024 Dipas Holistic Studio. All Rights
+                Reserved.</div>
+        </div>
+    </footer>
+
+    <!-- MOBILE CTA -->
+    <div class="mobile-sticky-cta mobile-only" id="mobile-cta">
+        <a href="tel:+919876543210" class="btn btn-primary" style="padding: 0.8rem 1.5rem; font-size: 0.9rem;">📞
+            Call</a>
+        <a href="#" onclick="openWhatsApp('general')" class="btn btn-whatsapp"
+            style="padding: 0.8rem 1.5rem; font-size: 0.9rem;"><svg class="wa-icon" viewBox="0 0 24 24"
+                style="width: 18px; height: 18px;">
+                <path
+                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.008-.57-.008-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+            </svg>Chat</a>
+    </div>
+
+    <!-- LIGHTBOX -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content">
+            <span class="lightbox-close" onclick="closeLightbox()">×</span>
+            <div id="lightbox-media"></div>
+            <div class="lightbox-info">
+                <h4 id="lightbox-title"></h4>
+                <p id="lightbox-desc"></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const PHONE_NUMBER = "919876543210";
+
+        // Gallery Data with labels
+        const galleryData = {
+            parlour: [
+                { file: "20250410_153515-COLLAGE.jpg", label: "Bridal Makeover", desc: "Complete bridal transformation with HD makeup" },
+                { file: "IMG20221224140155.jpg", label: "Party Makeup", desc: "Glamorous party look" },
+                { file: "IMG20221224142112.jpg", label: "Hair Styling", desc: "Professional hair styling" },
+                { file: "IMG20221224142252.jpg", label: "Beauty Treatment", desc: "Premium skin care treatment" },
+                { file: "IMG20221224142306.jpg", label: "Makeover Session", desc: "Complete makeover session" },
+                { file: "IMG20221224142307.jpg", label: "Facial Treatment", desc: "Rejuvenating facial" },
+                { file: "IMG20221224142711.jpg", label: "Spa Session", desc: "Relaxing spa experience" },
+                { file: "IMG_20250126_173605780_HDR.jpg", label: "Bridal Look", desc: "Traditional bridal makeup" },
+                { file: "IMG_20250220_223149784_HDR.jpg", label: "Evening Glam", desc: "Elegant evening look" },
+                { file: "IMG_20250221_141258873_HDR.jpg", label: "Natural Beauty", desc: "Natural everyday makeup" },
+                { file: "IMG_20250310_115808362_HDR.jpg", label: "Hair Color", desc: "Trendy hair coloring" },
+                { file: "IMG_20250401_184535624.jpg", label: "Skin Care", desc: "Deep cleansing facial" },
+                { file: "IMG_20250401_184545993.jpg", label: "Beauty Ritual", desc: "Complete beauty ritual" },
+                { file: "IMG_20250408_200349025.jpg", label: "Glamour Look", desc: "Red carpet ready look" },
+                { file: "IMG_20250409_111620913.jpg", label: "Fresh Look", desc: "Fresh and radiant look" },
+                { file: "VID_20250409_163017705.mp4", label: "Makeover Video", desc: "Watch the transformation", isVideo: true }
+            ],
+            tarot: [
+                { file: "IMG_20241212_191251585_AE.jpg", label: "Tarot Spread", desc: "Celtic cross reading" },
+                { file: "IMG_20241212_191359249_AE.jpg", label: "Card Reading", desc: "Intuitive card interpretation" },
+                { file: "file-4BDjSxCxe6yXAqnqD1khwJ.webp", label: "Mystic Cards", desc: "Mystical tarot session" },
+                { file: "file-JukXD6Mg7ToJaSX4kRr99U.webp", label: "Fortune Reading", desc: "Destiny revelation" },
+                { file: "file_000000001030620c8761ba203e1676b8.png", label: "Guidance Session", desc: "Spiritual guidance" },
+                { file: "tarot_reading_course_for_beginners_l.jpg", label: "Learn Tarot", desc: "Beginner's tarot course" },
+                { file: "VID-20251006-WA0004.mp4", label: "Reading Session", desc: "Live tarot reading", isVideo: true },
+                { file: "VID-20251006-WA0005.mp4", label: "Love Reading", desc: "Relationship spread", isVideo: true },
+                { file: "VID-20251006-WA0053.mp4", label: "Career Guidance", desc: "Career path reading", isVideo: true },
+                { file: "VID-20251006-WA0054.mp4", label: "Yearly Forecast", desc: "Annual prediction", isVideo: true },
+                { file: "VID-20251006-WA0057.mp4", label: "Spiritual Message", desc: "Divine guidance", isVideo: true },
+                { file: "VID-20251006-WA0058.mp4", label: "Quick Read", desc: "Daily card pull", isVideo: true },
+                { file: "VID-20251006-WA0059.mp4", label: "Oracle Cards", desc: "Oracle message", isVideo: true },
+                { file: "VID_20250303_184434_477.mp4", label: "Full Reading", desc: "Complete session", isVideo: true }
+            ],
+            crystals: [
+                { file: "355e7fa5eb0630ef0baa0c4752b65b9b.jpg", label: "Crystal Collection", desc: "Assorted healing crystals" },
+                { file: "Charging-crystals-by-the-element.jpg", label: "Crystal Charging", desc: "Elemental charging method" },
+                { file: "IMG_20241030_060034.jpg", label: "Raw Crystals", desc: "Natural raw specimens" },
+                { file: "IMG_20250214_161213454.jpg", label: "Crystal Display", desc: "Premium crystal display" },
+                { file: "IMG_20250529_123604587_HDR.jpg", label: "Healing Stones", desc: "Selected healing stones" },
+                { file: "IMG_20250603_003126458_HDR.jpg", label: "Crystal Set", desc: "Chakra crystal set" },
+                { file: "IMG_20250702_123844964_HDR.jpg", label: "Gem Collection", desc: "Precious gem collection" },
+                { file: "IMG_20250702_124737083_HDR.jpg", label: "Crystal Grid", desc: "Sacred crystal grid" },
+                { file: "ametrine-benefits.jpg", label: "Ametrine", desc: "Ametrine crystal benefits" },
+                { file: "benefits-of-amethyst.jpg", label: "Amethyst", desc: "Calming amethyst stone" },
+                { file: "irani-firoza-turquiose.png", label: "Turquoise", desc: "Irani Firoza turquoise" },
+                { file: "VID-20250806-WA0014.mp4", label: "Crystal Tour", desc: "Collection showcase", isVideo: true },
+                { file: "VID-20251127-WA0002.mp4", label: "Crystal Energy", desc: "Energy demonstration", isVideo: true },
+                { file: "VID-20251127-WA0004.mp4", label: "Healing Demo", desc: "Healing session", isVideo: true },
+                { file: "VID-20251204-WA0008.mp4", label: "Crystal Power", desc: "Crystal activation", isVideo: true }
+            ],
+            reiki: [
+                { file: "1485598167608_Seven_Chakras__03105.1506574566.jpg", label: "Seven Chakras", desc: "Complete chakra system" },
+                { file: "360_F_388509146_8NyVXOoYvO2TExrqbFQy4KCp6OPyqF8o.jpg", label: "Energy Flow", desc: "Universal life force" },
+                { file: "chakra-meditation-cosmic-energy-spiritual-awakening_1173476-4202.jpg", label: "Cosmic Energy", desc: "Spiritual awakening" },
+                { file: "DALL·E-2024-12-24-11.43.32-A-stunning-and-serene-depiction-of-Money-Reiki-featuring-a-meditating-figure-surrounded-by-golden-energy-waves-and-glowing-Reiki-symbols.-The-backgro.webp", label: "Money Reiki", desc: "Abundance healing" },
+                { file: "IMG_20240912_190404.png", label: "Reiki Symbols", desc: "Sacred Reiki symbols" },
+                { file: "IMG_20251002_121605250_AE.jpg", label: "Healing Session", desc: "Distance healing" },
+                { file: "IMG_20251021_190612632_HDR.jpg", label: "Energy Work", desc: "Chakra balancing" },
+                { file: "IMG_20251125_073557672_HDR.jpg", label: "Meditation", desc: "Guided meditation" },
+                { file: "mystical-reiki-symbol-stockcake.jpg", label: "Reiki Master", desc: "Master symbols" },
+                { file: "silhouette-meditating-woman-seven-chakras-600nw-2614823871.jpg", label: "Chakra Healing", desc: "Align your energy" },
+                { file: "golden-money-tree-stockcake (1).jpg", label: "Prosperity", desc: "Attract abundance" },
+                { file: "law-of-attraction-how-to-use-the-law-of-attraction-to-manifest-positive-energy-better-relationships-more-money-and-success-1.jpg", label: "Manifestation", desc: "Law of attraction" }
+            ]
+        };
+
+        // Crystal Info Data
+        const crystalInfo = [
+            { name: "Rose Quartz", short: "Stone of unconditional love", who: "Those seeking love & emotional healing", benefits: "Attracts romance, heals heartbreak, promotes self-love", detailed: "Rose Quartz opens the heart chakra to all forms of love. It restores trust, harmony, and encourages unconditional love. Place it in your bedroom for harmonious relationships." },
+            { name: "Amethyst", short: "Stone of peace & intuition", who: "Anyone seeking calm & spiritual growth", benefits: "Reduces stress, enhances intuition, aids sleep", detailed: "Amethyst is a powerful protective stone with high spiritual vibration. It guards against psychic attack and enhances meditation. Keep it by your bed for peaceful sleep." },
+            { name: "Citrine", short: "Merchant's stone of abundance", who: "Business owners & those seeking prosperity", benefits: "Attracts wealth, boosts confidence, increases motivation", detailed: "Citrine is one of the stones of abundance. It teaches how to manifest and attract wealth and prosperity, success, and all good things. Place it in your cash box or wallet." },
+            { name: "Black Tourmaline", short: "Ultimate protection stone", who: "Those facing negativity or stress", benefits: "Blocks negative energy, grounds you, reduces anxiety", detailed: "Black Tourmaline is one of the most powerful protectors against negative energy. It creates a psychic shield deflecting and dispelling negative energies. Keep it near your front door." },
+            { name: "Clear Quartz", short: "Master healer crystal", who: "Everyone - amplifies all intentions", benefits: "Amplifies energy, enhances clarity, programmable", detailed: "Clear Quartz is known as the master healer and will amplify energy and thought. It absorbs, stores, releases and regulates energy. Program it with any intention you desire." },
+            { name: "Tiger's Eye", short: "Stone of courage & power", who: "Those needing confidence & focus", benefits: "Boosts willpower, clarity, protection during travel", detailed: "Tiger's Eye combines earth energy with sun energy to create a high vibrational state that is both grounded and inspired. It promotes clear thinking and helps resolve dilemmas." }
+        ];
+
+        // Render Crystal Info Cards
+        function renderCrystalInfo() {
+            const container = document.getElementById('crystal-info-grid');
+            crystalInfo.forEach(c => {
+                container.innerHTML += `<div class="crystal-info-card"><h4>💎 ${c.name}</h4><p class="short-desc">${c.short}</p><p class="short-desc" style="margin-top:0.5rem;"><strong>Who:</strong> ${c.who}</p><p class="short-desc"><strong>Benefits:</strong> ${c.benefits}</p><p class="detailed-desc">${c.detailed}</p></div>`;
+            });
+        }
+
+        // Render Gallery
+        function renderGallery(containerId, items, folder) {
+            const container = document.getElementById(containerId);
+            items.forEach((item, idx) => {
+                const div = document.createElement('div');
+                div.className = 'gallery-item';
+                div.onclick = () => openLightbox(item, folder);
+                if (item.isVideo) {
+                    div.innerHTML = `<div class="media-container"><video src="images/assets/${folder}/${item.file}" muted preload="metadata"></video><div class="video-overlay"><div class="play-btn"></div></div></div><div class="gallery-info"><h4>${item.label}</h4><p>${item.desc}</p></div>`;
+                } else {
+                    div.innerHTML = `<div class="media-container"><img src="images/assets/${folder}/${item.file}" alt="${item.label}" loading="lazy"></div><div class="gallery-info"><h4>${item.label}</h4><p>${item.desc}</p></div>`;
+                }
+                container.appendChild(div);
+            });
+        }
+
+        // Lightbox
+        function openLightbox(item, folder) {
+            const lightbox = document.getElementById('lightbox');
+            const mediaContainer = document.getElementById('lightbox-media');
+            document.getElementById('lightbox-title').textContent = item.label;
+            document.getElementById('lightbox-desc').textContent = item.desc;
+            if (item.isVideo) {
+                mediaContainer.innerHTML = `<video src="images/assets/${folder}/${item.file}" controls autoplay style="max-width:100%;max-height:80vh;border-radius:16px;"></video>`;
+            } else {
+                mediaContainer.innerHTML = `<img src="images/assets/${folder}/${item.file}" alt="${item.label}">`;
+            }
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            const mediaContainer = document.getElementById('lightbox-media');
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+            mediaContainer.innerHTML = '';
+        }
+
+        document.getElementById('lightbox').addEventListener('click', (e) => { if (e.target.id === 'lightbox') closeLightbox(); });
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
+
+        // Scroll Gallery
+        function scrollGallery(id, amount) { document.getElementById(id).scrollBy({ left: amount, behavior: 'smooth' }); }
+
+        // WhatsApp
+        function openWhatsApp(type) {
+            const msgs = { parlour: "Hi, I'm interested in Beauty Parlour services.", tarot: "Hi, I want to book a Tarot Reading session.", crystals: "Hi, I need guidance on Healing Crystals.", numerology: "Hi, I want a Reiki/Healing session." };
+            window.open(`https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(msgs[type] || "Hi, I have a query.")}`, '_blank');
+        }
+
+        // Scroll Animation
+        const observer = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('active'); }); }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Navbar
+        window.addEventListener('scroll', () => { document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50); });
+
+        function scrollToSection(id) { document.getElementById(id).scrollIntoView({ behavior: 'smooth' }); }
+
+        // Initialize
+        renderGallery('parlour-gallery', galleryData.parlour, 'Parlor');
+        renderGallery('tarot-gallery', galleryData.tarot, 'Tarot');
+        renderGallery('crystals-gallery', galleryData.crystals, 'Crystal');
+        renderGallery('reiki-gallery', galleryData.reiki, 'Reiki');
+        renderCrystalInfo();
+
+        // Mobile CTA
+        if (!/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) document.getElementById('mobile-cta').style.display = 'none';
+    </script>
+</body>
+
+</html>
